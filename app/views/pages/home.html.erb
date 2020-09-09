@@ -1,4 +1,41 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(../assets/images/home5,jpg);">
+    <h1>Le Wagon brings <strong>tech skills</strong> to <strong>creative people</strong>!</h1>
+    <p>Change your life and learn to code at one of our campuses around the world.</p>
+    <%= link_to "Shoes", shoes_path %>
+</div>
 
-<%= link_to "shoes", shoes_path %>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="d-flex ">
+        <div class="card m-1" style="width: 30vw; border: none;">
+          <%= image_tag("home4.jpg") %>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="d-flex ">
+        <div class="card m-1" style="width: 30vw; border: none;">
+          <%= image_tag("home2.jpg") %>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="d-flex ">
+        <div class="card m-1" style="width: 30vw; border: none;">
+          <%= image_tag("home1.jpg") %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<h2>Addidas</h2>
+
+<h2>Back to School</h2>
+
+<h2>New Arrivals</h2>
+
+
+<h2>You may also like...</h2>

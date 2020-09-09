@@ -22,6 +22,7 @@ class ShoesController < ApplicationController
   end
 
   def show
+    @shoe = Shoe.find(params[:id])
   end
 
   def edit
@@ -38,6 +39,6 @@ class ShoesController < ApplicationController
   def shoe_params
     params.require(:shoe).permit(:name, :stock_level, :price, :material,
                                  :colour, :category, :department, :brand,
-                                 :size, photos: [])
+                                 :size, :description, photos: [])
   end
 end
