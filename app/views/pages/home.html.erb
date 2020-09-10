@@ -1,41 +1,53 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(../assets/images/home5,jpg);">
-    <h1>Le Wagon brings <strong>tech skills</strong> to <strong>creative people</strong>!</h1>
-    <p>Change your life and learn to code at one of our campuses around the world.</p>
-    <%= link_to "Shoes", shoes_path %>
-</div>
 
-<div class="container">
+<%= render 'banner' %>
   <div class="row">
-    <div class="col">
-      <div class="d-flex ">
-        <div class="card m-1" style="width: 30vw; border: none;">
-          <%= image_tag("home4.jpg") %>
+    <div class="col-4" style="padding: 0">
+      <div class="d-flex justify-content: flex-start;">
+       <div class="card m-1" style=" border: none; margin: 0; padding: 0 0 0 0">
+          <%= image_tag("home1.jpg", size: '450x450') %>
         </div>
       </div>
     </div>
-    <div class="col">
+    <div class="col-4" style="padding: 0">
       <div class="d-flex ">
-        <div class="card m-1" style="width: 30vw; border: none;">
-          <%= image_tag("home2.jpg") %>
+        <div class="card m-1" style=" border: none; margin: 0; padding: 0 0 0 0">
+            <%= image_tag("home2.jpg", size: '450x450') %>
         </div>
       </div>
     </div>
-    <div class="col">
-      <div class="d-flex ">
-        <div class="card m-1" style="width: 30vw; border: none;">
-          <%= image_tag("home1.jpg") %>
+    <div class="col-4" style="padding: 0">
+      <div class="d-flex justify-content: flex-start;">
+        <div class="card m-1" style=" border: none; margin: 0; padding: 0 0 0 0">
+            <%= image_tag("home4.jpg", size: '450x450') %>
         </div>
       </div>
     </div>
   </div>
+    <div class="row border border-warning" style="width: 100%"></span>
+      <div class="col" style="">
+        <h2>Women</h2>
+      </div>
+      <div class="col">
+        <h2>Men</h2>
+      </div>
+       <div class="col">
+        <h2>Kids</h2>
+      </div>
+    </div>
+
+
+<div class="container">
+  </div>
+<div>
+  <h2 >Addidas</h2>
+</div>
+<div style="display: flex; justify-content: flex-end;">
+<h2>Back to School</h2>
+<%= image_tag("back2school.jpg", size: '600x600') %>
 </div>
 
-
-<h2>Addidas</h2>
-
-<h2>Back to School</h2>
-
-<h2>New Arrivals</h2>
+<h2 style="text-align: center;"> New Arrivals</h2>
 
 
 <h2>You may also like...</h2>
+</div>
