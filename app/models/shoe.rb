@@ -1,5 +1,6 @@
 class Shoe < ApplicationRecord
-  belongs_to :user
+  has_many :users, through: :orders
+  has_many :orders
   has_many_attached :photos
 
   validates :name, presence: true, uniqueness: true

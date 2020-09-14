@@ -36,23 +36,28 @@
     </div>
 
 
-<div class="container">
-  <div>
-    <h2 >It's Boot Season</h2>
-    <%= image_tag("drmarten.jpg", size: '600x600') %>
-  </div>
+<div class="super_container">
   <div class="row">
     <div class="col">
-      <div class="flex-direction: row justify-content: flex-end">
-        <div class="card m-1" style="border: none;">
-          <h2>Back to School</h2>
-         <%= image_tag("back2school.jpg", size: '600x600') %>
+      <div class="flex-direction: row" style="justify-content: flex-end; margin-right: 16px;">
+          <%= image_tag("back2school.jpg", size: '600x600') %>
+          <div>
+           <!--  <h2 >It's Boot Season</h2> -->
         </div>
       </div>
     </div>
+      <div class="col">
+        <div class="flex-direction: row" style=" justify-content: flex-start; width: 18rem;">
+           <%= image_tag("drmarten.jpg", size: '600x600') %>
+          <div>
+          <!--   <h2>Back to School</h2> -->
+          </div>
+        </div>
+      </div>
   </div>
 </div>
-  <h2 style="text-align: center;"> New Arrivals</h2>
+
+<h2 style="text-align: center;"> New Arrivals</h2>
   <div class="row">
     <% Shoe.all.order(id: :desc).limit(3).each do  |s|%>
       <div class="col">
@@ -60,12 +65,13 @@
           <div class="card m-1" style="width: 18rem; border: none;">
             <%= link_to shoe_path(s) do %>
             <%= cl_image_tag s.photos.first.key, dpr: 2.0, class:"card-img-top mb-3"%>
-    <% end %>
-    <% end %>
+            <% end %>
           </div>
         </div>
       </div>
+    <% end %>
   </div>
 
-<h2>You may also like...</h2>
-
+<div>
+<h2 style="text-align: center;">You may also like...</h2>
+</div>
