@@ -1,0 +1,16 @@
+
+<tr>
+  <th scope="row" class="border-0">
+    <div class="p-2">
+      <%= cl_image_tag basket_item.shoe.photos.first.key, width: 70, height: 70 %>
+      <div class="ml-3 d-inline-block align-middle">
+        <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle"><%= basket_item.shoe.brand %> <%= basket_item.shoe.name %></a></h5>
+        <span class="text-muted font-weight-normal font-italic d-block">Category: <%= basket_item.shoe.department %> <%= basket_item.shoe.category %></span>
+      </div>
+    </div>
+  </th>
+  <td class="border-0 align-middle"><strong>£<%= basket_item.shoe.price %></strong></td>
+  <td class="border-0 align-middle"><strong><%= basket_item.quantity %></strong></td>
+<%= link_to "", basket_item, method: :delete, data: { confirm: "Are you sure you want to remove this item from your basket?"} %>
+  <td class="border-0 align-middle"><i class="fa fa-trash"></i></td>
+</tr>

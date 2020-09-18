@@ -59,7 +59,7 @@ class BasketItemsController < ApplicationController
     @basket = Basket.find(session[:basket_id])
     @basket_item.destroy
     respond_to do |format|
-      format.html { redirect_to basket_path(@basket), notice: 'Basket item was successfully destroyed.' }
+      format.html { redirect_to basket_path(@basket), notice: 'Basket item was successfully removed.' }
       format.json { head :no_content }
     end
   end
