@@ -49,6 +49,9 @@
       <div class="col">
         <div class="flex-direction: row" style=" justify-content: flex-start; width: 18rem;">
            <%= image_tag("drmarten.jpg", size: '600x600') %>
+           <span style ="display: flex; position: absolute; top: 80px; width: inherit;">
+           <p style="background-color: orange; color: black; width: 25vw;  font-size: 24px; padding: 4px">
+            <strong>Dr Martens!</strong></p></span>
           <div>
           <!--   <h2>Back to School</h2> -->
           </div>
@@ -57,11 +60,11 @@
   </div>
 </div>
 
-<h2 style="text-align: center;"> New Arrivals</h2>
+<h2 style="text-align: center; margin-top: 16px;"> New Arrivals</h2>
   <div class="row">
     <% Shoe.all.order(id: :desc).limit(3).each do  |s|%>
       <div class="col">
-        <div class="flex-direction: row">
+        <div class="flex-direction: row" style="justify-content: center;">
           <div class="card m-1" style="width: 18rem; border: none;">
             <%= link_to shoe_path(s) do %>
             <%= cl_image_tag s.photos.first.key, dpr: 2.0, class:"card-img-top mb-3"%>

@@ -50,14 +50,11 @@
                             <form action="#">
                         </div>
                         <div class="row">
-                          <%= link_to  new_shoe_order_path(@shoe) do %>
-                            <div class="col-xs-6"> <button type="button" class="btn btn-primary shop-button">Add to Cart</button> <button type="button" class="btn btn-success shop-button">Buy Now</button>
-                                <% end %>
-                                <div class="product_fav"><i class="fas fa-heart"></i></div>
+                            <div class="col-xs-6"> <button type="button" class="btn btn-primary shop-button"><%= link_to 'Add to cart', basket_items_path(shoe_id: @shoe), method: :post %></button> <button type="button" class="btn btn-success shop-button">Buy Now</button>
+                                <div class="product_fav"><i class="fas fa-ruler"></i>Size guide</div>
                             </div>
                         </div>
                         <div>
-                          size guide
                         </div>
                     </div>
                 </div>

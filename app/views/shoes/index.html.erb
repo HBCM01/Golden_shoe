@@ -1,13 +1,19 @@
-
+<% if user_signed_in? && current_user.admin == true  %>
 <%= link_to "create shoes",  new_shoe_path %>
-
+<% end %>
 <%#= render 'sidebar' %>
 <div class="container">
   <div class="row">
   <%@shoes.each do |shoe| %>
+   <!--  -->
     <div class="col">
       <div class="flex-direction: row">
       <div class="card m-1" style="width: 18rem; border: none;">
+        <div class="inline-block" data-controller="hovercard"
+             data-hovercard-url-value="<%= hovercard_shoe_path(shoe) %>"
+             data-action="mouseenter->hovercard#show mouseleave->hovercard#hide">
+             <%= link_to shoe.name, shoe_path(shoe), class: "branded-link" %>
+        </div>
         <% if shoe.photos.attached? %>
             <%= link_to shoe_path(shoe) do %>
             <%= cl_image_tag shoe.photos.first.key, crop: :scale, class:"card-img-top mb-3"%>
@@ -17,7 +23,7 @@
             <%= shoe.brand %>
         </div>
         <p class="card-text" style="color: light-gray; min-height: fit-content; padding: 0; margin: 0;"><%= shoe.name %></p>
-        <p class="card-text" style="color: light-gray min-height: fit-content; padding: 0; margin: 0;;"><%= shoe.colour %></p>
+        <p class="card-text" style="color: light-gray; min-height: fit-content; padding: 0; margin: 0;;"><%= shoe.colour %></p>
         <p class="card-text" style="color: orange; min-height: fit-content; padding: 0; margin: 0;">£<%= shoe.price %></p>
         </div>
       </div>

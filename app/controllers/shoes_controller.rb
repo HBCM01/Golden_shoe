@@ -25,6 +25,12 @@ class ShoesController < ApplicationController
     @shoe = Shoe.find(params[:id])
   end
 
+  def hovercard
+    @shoe = Shoe.find(params[:id])
+
+    render layout: false
+  end
+
   def edit
   end
 
