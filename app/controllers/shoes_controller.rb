@@ -2,7 +2,7 @@ class ShoesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :create]
 
   def index
-    @shoes = Shoe.all
+    @shoes = Shoe.includes(:user)
   end
 
   def new
@@ -29,15 +29,6 @@ class ShoesController < ApplicationController
     @shoe = Shoe.find(params[:id])
 
     render layout: false
-  end
-
-  def edit
-  end
-
-  def update
-  end
-
-  def destroy
   end
 
   private

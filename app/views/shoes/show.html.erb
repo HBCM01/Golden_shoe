@@ -21,15 +21,20 @@
                     </ul>
                 </div>
                 <div class="col-lg-4 order-lg-2 order-1">
-                    <div class="image_selected" style="background-color: orange;"><%= cl_image_tag @shoe.photos.first.key, crop: :scale %></div>
+                    <div class="image_selected" style=""><%= cl_image_tag @shoe.photos.first.key, crop: :scale %></div>
                 </div>
                 <div class="col-lg-6 order-3">
                     <div class="product_description">
                         <div class="product_name"> <%= @shoe.brand %> <%= @shoe.name %> </div>
-                        <div class="product-rating"><span class="badge badge-success"><i class="fa fa-star"></i> 4.5 Star</span> <span class="rating-review">35 Ratings & 45 Reviews</span></div>
+                        <div class="product-rating"><span class="badge badge-warning"><i class="fa fa-star"></i> 4.5 Star</span> <span class="rating-review">35 Ratings & 45 Reviews</span></div>
                         <div class="product_price">£ <%=@shoe.price  %></div>
                         <hr class="singleline">
-                        <div> <span class="product_info">EMI starts at ₹ 2,000. No Cost EMI Available<span><br> <span class="product_info">Warranty: 6 months warranty<span><br> <span class="product_info">7 Days easy return policy<span><br> <span class="product_info">7 Days easy return policy<span><br> <span class="product_info">In Stock: 25 units sold this week<span> </div>
+                        <div> <span class="product_info"><%= @shoe.description %><span><br>
+                          <br>
+                            <span class="product_info"><%= @shoe.material %><span><br>
+                              <span class="product_info">Colour:<%= @shoe.colour %><span><br>
+                                <span class="product_info"><%= @shoe.stock_level %> remaining<span>
+                        </div>
                         <div>
                             <div class="row">
                                 <div class="col-md-5">
@@ -50,14 +55,208 @@
                             <form action="#">
                         </div>
                         <div class="row">
-                            <div class="col-xs-6"> <button type="button" class="btn btn-primary shop-button"><%= link_to 'Add to cart', basket_items_path(shoe_id: @shoe), method: :post %></button> <button type="button" class="btn btn-success shop-button">Buy Now</button>
-                                <div class="product_fav"><i class="fas fa-ruler"></i>Size guide</div>
+                          <% if @shoe.stock_level > 0  %>
+                            <div class="col-xs-6"> <button type="button" class="btn btn-dark rounded-pill py-2"><%= link_to 'Add to cart', basket_items_path(shoe_id: @shoe), method: :post %></button>
+                              <button type="button" class="btn btn-dark rounded-pill py-2">Buy Now</button>
+                                <div class="product_fav">
+                                  <i class="btn btn-dark rounded-pill py-2 fas fa-ruler fa-2x "data-toggle="modal" data-target="#exampleModalLong"></i>
+
+                              </div>
+                              <% else  %>
+                                 <span class="product_info">Currently out of stock</span>
+                              <% end %>
                             </div>
-                        </div>
-                        <div>
                         </div>
                     </div>
                 </div>
             </div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" style="text-align: center;" id="exampleModalLongTitle">Size Guide</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table class="table">
+              <thead style="background-color: orange;">
+                <tr>
+                  <th scope="col" class="border-0 bg-dark">
+                    <div class="p-2 px-3 text-uppercase">UK</div>
+                  </th>
+                  <th scope="col" class="border-0 bg-dark">
+                    <div class="py-2 text-uppercase">EU</div>
+                  </th>
+                  <th scope="col" class="border-0 bg-dark">
+                    <div class="py-2 text-uppercase">US</div>
+                  </th>
+                </tr>
+                <tr>
+              </thead>
+              <tbody>
+                <tr>
+                <th scope="col" class="border-0 bg-light">
+                    <div class="p-2 px-3 text-uppercase">3</div>
+                  </th>
+                  <th scope="col" class="border-0 bg-light">
+                    <div class="p-2 px-3 text-uppercase">36</div>
+                  </th>
+                  <th scope="col" class="border-0 bg-light">
+                    <div class="p-2 px-3 text-uppercase">5</div>
+                  </th>
+                </tr>
+                <tr>
+                  <th scope="col" class="border-0 bg-lighter">
+                    <div class="p-2 px-3 text-uppercase">3.5</div>
+                  </th>
+                  <th scope="col" class="border-0 bg-lighter">
+                    <div class="p-2 px-3 text-uppercase">36.5</div>
+                  </th>
+                  <th scope="col" class="border-0 bg-lighter">
+                    <div class="p-2 px-3 text-uppercase">5.5</div>
+                  </th>
+                </tr>
+                <tr>
+                  <th scope="col" class="border-0 bg-light">
+                    <div class="p-2 px-3 text-uppercase">4</div>
+                  </th>
+                  <th scope="col" class="border-0 bg-light">
+                    <div class="p-2 px-3 text-uppercase">37</div>
+                  </th>
+                  <th scope="col" class="border-0 bg-light">
+                    <div class="p-2 px-3 text-uppercase">6</div>
+                  </th>
+                </tr>
+                <tr>
+                  <th scope="col" class="border-0 bg-lighter">
+                    <div class="p-2 px-3 text-uppercase">4.5</div>
+                  </th>
+                  <th scope="col" class="border-0 bg-lighter">
+                    <div class="p-2 px-3 text-uppercase">37.5</div>
+                  </th>
+                  <th scope="col" class="border-0 bg-lighter">
+                    <div class="p-2 px-3 text-uppercase">6.5</div>
+                  </th>
+                </tr>
+                <tr>
+                  <th scope="col" class="border-0 bg-light">
+                    <div class="p-2 px-3 text-uppercase">5</div>
+                  </th>
+                  <th scope="col" class="border-0 bg-light">
+                    <div class="p-2 px-3 text-uppercase">38</div>
+                  </th>
+                  <th scope="col" class="border-0 bg-light">
+                    <div class="p-2 px-3 text-uppercase">7</div>
+                  </th>
+                </tr>
+                <tr>
+                  <th scope="col" class="border-0 bg-lighter">
+                    <div class="p-2 px-3 text-uppercase">5.5</div>
+                  </th>
+                  <th scope="col" class="border-0 bg-lighter">
+                    <div class="p-2 px-3 text-uppercase">38.5</div>
+                  </th>
+                  <th scope="col" class="border-0 bg-lighter">
+                    <div class="p-2 px-3 text-uppercase">7.5</div>
+                  </th>
+                </tr>
+                <tr>
+                  <th scope="col" class="border-0 bg-light">
+                    <div class="p-2 px-3 text-uppercase">6</div>
+                  </th>
+                  <th scope="col" class="border-0 bg-light">
+                    <div class="p-2 px-3 text-uppercase">39</div>
+                  </th>
+                  <th scope="col" class="border-0 bg-light">
+                    <div class="p-2 px-3 text-uppercase">8</div>
+                  </th>
+                </tr>
+                <tr>
+                  <th scope="col" class="border-0 bg-lighter">
+                    <div class="p-2 px-3 text-uppercase">6.5</div>
+                  </th>
+                  <th scope="col" class="border-0 bg-lighter">
+                    <div class="p-2 px-3 text-uppercase">39.5</div>
+                  </th>
+                  <th scope="col" class="border-0 bg-lighter">
+                    <div class="p-2 px-3 text-uppercase">8.5</div>
+                  </th>
+                </tr>
+                <tr>
+                  <th scope="col" class="border-0 bg-light">
+                    <div class="p-2 px-3 text-uppercase">7</div>
+                  </th>
+                  <th scope="col" class="border-0 bg-light">
+                    <div class="p-2 px-3 text-uppercase">40</div>
+                  </th>
+                  <th scope="col" class="border-0 bg-light">
+                    <div class="p-2 px-3 text-uppercase">9</div>
+                  </th>
+                </tr>
+                <tr>
+                  <th scope="col" class="border-0 bg-lighter">
+                    <div class="p-2 px-3 text-uppercase">7.5</div>
+                  </th>
+                  <th scope="col" class="border-0 bg-lighter">
+                    <div class="p-2 px-3 text-uppercase">40.5</div>
+                  </th>
+                  <th scope="col" class="border-0 bg-lighter">
+                    <div class="p-2 px-3 text-uppercase">9.5</div>
+                  </th>
+                </tr>
+                <tr>
+                  <th scope="col" class="border-0 bg-light">
+                    <div class="p-2 px-3 text-uppercase">8</div>
+                  </th>
+                  <th scope="col" class="border-0 bg-light">
+                    <div class="p-2 px-3 text-uppercase">41</div>
+                  </th>
+                  <th scope="col" class="border-0 bg-light">
+                    <div class="p-2 px-3 text-uppercase">10</div>
+                  </th>
+                </tr>
+                <tr>
+                  <th scope="col" class="border-0 bg-lighter">
+                    <div class="p-2 px-3 text-uppercase">8.5</div>
+                  </th>
+                  <th scope="col" class="border-0 bg-lighter">
+                    <div class="p-2 px-3 text-uppercase">41.5</div>
+                  </th>
+                  <th scope="col" class="border-0 bg-lighter">
+                    <div class="p-2 px-3 text-uppercase">10.5</div>
+                  </th>
+                </tr>
+                <tr>
+                  <th scope="col" class="border-0 bg-light">
+                    <div class="p-2 px-3 text-uppercase">9</div>
+                  </th>
+                  <th scope="col" class="border-0 bg-light">
+                    <div class="p-2 px-3 text-uppercase">42</div>
+                  </th>
+                  <th scope="col" class="border-0 bg-light">
+                    <div class="p-2 px-3 text-uppercase">11</div>
+                  </th>
+                </tr>
+                <tr>
+                  <th scope="col" class="border-0 bg-lighter">
+                    <div class="p-2 px-3 text-uppercase">9.5</div>
+                  </th>
+                  <th scope="col" class="border-0 bg-lighter">
+                    <div class="p-2 px-3 text-uppercase">42.5</div>
+                  </th>
+                  <th scope="col" class="border-0 bg-lighter">
+                    <div class="p-2 px-3 text-uppercase">11.5</div>
+                  </th>
+                </tr>
+              </tbody>
+            </table>
+      </div>
+    </div>
+  </div>
+</div>
 
 

@@ -5,7 +5,7 @@ class BasketsController < ApplicationController
   # GET /baskets
   # GET /baskets.json
   def index
-    @baskets = Basket.all
+    @baskets = Basket.include(:basket_items)
   end
 
   # GET /baskets/1
@@ -58,24 +58,24 @@ class BasketsController < ApplicationController
     @basket.destroy if @basket.id == session[:basket_id]
     session[:basket_id] = nil
     respond_to do |format|
-      format.html { redirect_to baskets_url, notice: 'Basket was successfully destroyed.' }
+      format.html { redirect_to shoes_url, notice: 'Basket was successfully emptied.' }
       format.json { head :no_content }
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_basket
-      @basket = Basket.find(params[:id])
-    end
+  def set_basket
+    @basket = Basket.find(params[:id])
+  end
 
     # Only allow a list of trusted parameters through.
-    def basket_params
-      params.fetch(:basket, {})
-    end
+  def basket_params
+    params.fetch(:basket, {})
+  end
 
-    def invalid_basket
-      logger.error "Attempt to access invalid basket"
-      redirect_to root_path, notice: "That basket doesn't exist"
-    end
+  def invalid_basket
+    logger.error "Attempt to access invalid basket"
+    redirect_to root_path, notice: "That basket doesn't exist"
+  end
 end

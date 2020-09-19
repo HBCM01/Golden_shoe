@@ -5,6 +5,8 @@ ruby '2.6.6'
 
 gem 'cloudinary', '~> 1.16.0'
 
+gem 'pg_search', '~> 2.3.0'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
 # Use postgresql as the database for Active Record

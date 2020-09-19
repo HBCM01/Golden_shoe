@@ -11,6 +11,6 @@
   </th>
   <td class="border-0 align-middle"><strong>£<%= basket_item.shoe.price %></strong></td>
   <td class="border-0 align-middle"><strong><%= basket_item.quantity %></strong></td>
-<%= link_to "", basket_item, method: :delete, data: { confirm: "Are you sure you want to remove this item from your basket?"} %>
-  <td class="border-0 align-middle"><i class="fa fa-trash"></i></td>
+  <td class="border-0 align-middle"><%= link_to "Remove item", basket_item, method: :delete, data: { confirm: "Are you sure you want to remove this item from your basket?"} %></td>
+
 </tr>
