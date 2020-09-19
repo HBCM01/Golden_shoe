@@ -14,12 +14,13 @@ class Shoe < ApplicationRecord
   validates :department, presence: true
   validates :brand, presence: true
   validates :size, presence: true
- include PgSearch::Model
-  pg_search_scope :search_by_name_and_brand,
-    against: [:name, :brand, :category, :department],
-    using: {
-      tsearch: { prefix: true } # <-- now `superman batm` will return something!
-    }
+  include PgSearch::Model
+  pg_search_scope :shoe_search,
+    against: [:name, :brand, :description, :department, :colour],
+     using: {
+      tsearch: { prefix: true }
+            }
+
   private
 
   def not_referenced_by_any_basket_item
