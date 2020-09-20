@@ -2,9 +2,17 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.6'
-
+# handle online payments and customer card and billing info
+gem 'stripe'
+# creates admin dashboard
+gem 'rails_admin', '~> 2.0'
+# cloud hosted image storage with Active Record
 gem 'cloudinary', '~> 1.16.0'
 
+# Creates a  graphical data Analytics dashboard for insights/data team
+gem 'blazer'
+
+# search gem
 gem 'pg_search', '~> 2.3.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
