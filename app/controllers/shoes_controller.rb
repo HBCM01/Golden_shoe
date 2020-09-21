@@ -6,6 +6,8 @@ class ShoesController < ApplicationController
     @shoes = Shoe.where(:brand => params[:brand])
     elsif params[:category]
       @shoes = Shoe.where(:category => params[:category])
+    elsif params[:department]
+      @shoes = Shoe.where(:department => params[:department])
     elsif params[:query].present?
       @shoes = Shoe.shoe_search(params[:query])
     else

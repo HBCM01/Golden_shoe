@@ -1,19 +1,15 @@
 
 <div class="super_container">
 <%= render 'banner' %>
-    <div class="row " style="width: 100vw;">
-      <div class="col" style="background-color: orange; width: 33%; ">
-        <h2>Mens</h2>
-      </div>
-      <div class="col" style="background-color: orange;  width: 33%; ">
-        <h2>Women</h2>
-      </div>
-
-       <div class="col" style="background-color: orange;  width: 33%; ">
-        <h2>Kids</h2>
-      </div>
-    </div>
-
+    <div style="background-color: orange; margin-bottom: 16px:">
+   <div class="topnav" style="text-align: center;">
+    <%= link_to "Womens", shoes_path(:department=>"Women's") %>
+    <%= link_to "Mens", shoes_path(:department=>"Mens") %>
+    <%= link_to "Kids", shoes_path(:department=>"Kids") %>
+    <%= link_to "Trainers", shoes_path(:category=>"Trainers") %>
+    <%= link_to "Boots", shoes_path(:category=>"Boots") %>
+  </div>
+</div>
 
   <div class="row">
     <div class="col">
@@ -57,7 +53,7 @@
   </div>
 
 <div>
-<h2 style="text-align: center;">You may also like...</h2>
+<h2 style="text-align: center; margin: 16px;">You may also like...</h2>
 
 <div class="top-content">
     <div class="container-fluid">
@@ -65,28 +61,28 @@
 
             <div class="carousel-inner row w-100 mx-auto" role="listbox">
                 <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3 active">
-                    <%= cl_image_tag @shoes.find_by_id(11).photos.first.key, crop: :scale, class:"card-img-top mb-3"%>
+                    <%= cl_image_tag @shoes.find_by_id(1).photos.first.key, crop: :scale, class:"card-img-top mb-3"%>
                 </div>
                 <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                    <%= cl_image_tag @shoes.find_by_id(13).photos.first.key, crop: :scale, class:"card-img-top mb-3"%>
+                    <%= cl_image_tag @shoes.find_by_id(2).photos.first.key, crop: :scale, class:"card-img-top mb-3"%>
                 </div>
                 <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                    <%= cl_image_tag @shoes.find_by_id(12).photos.first.key, crop: :scale, class:"card-img-top mb-3"%>
+                    <%= cl_image_tag @shoes.find_by_id(3).photos.first.key, crop: :scale, class:"card-img-top mb-3"%>
+                </div>
+                <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+                    <%= cl_image_tag @shoes.find_by_id(4).photos.first.key, crop: :scale, class:"card-img-top mb-3"%>
+                </div>
+                <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
+                    <%= cl_image_tag @shoes.find_by_id(5).photos.first.key, crop: :scale, class:"card-img-top mb-3"%>
                 </div>
                 <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
                     <%= cl_image_tag @shoes.find_by_id(6).photos.first.key, crop: :scale, class:"card-img-top mb-3"%>
                 </div>
                 <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                    <%= cl_image_tag @shoes.find_by_id(14).photos.first.key, crop: :scale, class:"card-img-top mb-3"%>
+                    <%= cl_image_tag @shoes.find_by_id(7).photos.first.key, crop: :scale, class:"card-img-top mb-3"%>
                 </div>
                 <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                    <%= cl_image_tag @shoes.find_by_id(15).photos.first.key, crop: :scale, class:"card-img-top mb-3"%>
-                </div>
-                <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                    <%= cl_image_tag @shoes.find_by_id(15).photos.first.key, crop: :scale, class:"card-img-top mb-3"%>
-                </div>
-                <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3">
-                    <%= cl_image_tag @shoes.find_by_id(15).photos.first.key, crop: :scale, class:"card-img-top mb-3"%>
+                    <%= cl_image_tag @shoes.find_by_id(8).photos.first.key, crop: :scale, class:"card-img-top mb-3"%>
                 </div>
             </div>
             <a class="carousel-control-prev" href="#carousel-example" role="button" data-slide="prev">

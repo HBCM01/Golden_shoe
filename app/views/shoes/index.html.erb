@@ -4,18 +4,25 @@
     <i class="fas fa-search" aria-hidden="true"></i>
   </form>
  -->
- <div class="search">
-    <div class="search-form form-inline d-flex md-form justify-content-center">
+ <div style="background-color: orange; margin-bottom: 16px:">
+   <div class="topnav">
+    <%= link_to "Womens", shoes_path(:department=>"Women's") %>
+    <%= link_to "Mens", shoes_path(:department=>"Mens") %>
+    <%= link_to "Kids", shoes_path(:department=>"Kids") %>
+    <%= link_to "Trainers", shoes_path(:category=>"Trainers") %>
+    <%= link_to "Boots", shoes_path(:category=>"Boots") %>
+  </div>
+</div>
+
+    <div class="search-form form-inline d-flex md-form justify-content-center" style="margin-top: 16px">
       <%= form_tag shoes_path, method: :get do %>
         <%= text_field_tag :query,
           params[:query],
           class: "form-control",
           placeholder: "Find your sole mate"%>
       <i class="fas fa-search"></i>
- <% end %>
+      <% end %>
     </div>
-
-
 
 <% if user_signed_in? && current_user.admin == true  %>
 <%= link_to "create shoes",  new_shoe_path %>
@@ -44,4 +51,26 @@
   <% end %>
   </div>
 </div>
+
+
+<script>
+function myFunction() {
+  // Declare variables
+  var input, filter, ul, li, a, i;
+  input = document.getElementById("mySearch");
+  filter = input.value.toUpperCase();
+  ul = document.getElementById("myMenu");
+  li = ul.getElementsByTagName("li");
+
+  // Loop through all list items, and hide those who don't match the search query
+  for (i = 0; i < li.length; i++) {
+    a = li[i].getElementsByTagName("a")[0];
+    if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+      li[i].style.display = "";
+    } else {
+      li[i].style.display = "none";
+    }
+  }
+}
+</script>
 
