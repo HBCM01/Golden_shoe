@@ -4,8 +4,9 @@ Rails.application.routes.draw do
       mount Blazer::Engine, at: "blazer"
     end
   resources :basket_items
-  resources :baskets
-  resources :charges
+  resources :baskets do
+    resources :charges
+  end
   devise_for :admins
   devise_for :users
   root to: 'pages#home'

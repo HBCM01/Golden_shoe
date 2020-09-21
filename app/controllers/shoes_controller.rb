@@ -2,7 +2,11 @@ class ShoesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :create]
 
   def index
-    if params[:query].present?
+    if params[:brand]
+    @shoes = Shoe.where(:brand => params[:brand])
+    elsif params[:category]
+      @shoes = Shoe.where(:category => params[:category])
+    elsif params[:query].present?
       @shoes = Shoe.shoe_search(params[:query])
     else
       @shoes = Shoe.includes(:user)

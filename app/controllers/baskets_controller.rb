@@ -11,6 +11,8 @@ class BasketsController < ApplicationController
   # GET /baskets/1
   # GET /baskets/1.json
   def show
+    @basket = Basket.find(params[:id])
+
   end
 
   # GET /baskets/new
@@ -20,6 +22,9 @@ class BasketsController < ApplicationController
 
   # GET /baskets/1/edit
   def edit
+    @basket = Basket.find(params[:id])
+    @basket.total_price - 10
+    redirect_to basket_path(@basket)
   end
 
   # POST /baskets

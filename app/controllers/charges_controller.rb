@@ -1,25 +1,26 @@
 class ChargesController < ApplicationController
   def new
-    @amount = k
+
   end
 
   def create
-    # Amount in cents
-    total_amount = Basket.find(params[@basket])
-    @amount = total_amount.total_price
+  # Amount in cents
+  @amount = 500 + @basket.total_price * 100
 
-    customer = Stripe::Customer.create({
-      email: params[:stripeEmail],
-      source: params[:stripeToken],
-    })
-    charge = Stripe::Charge.create({
-      customer: customer.id,
-      amount: @amount,
-      description: 'Rails Stripe customer',
-      currency: 'usd',
-    })
+  customer = Stripe::Customer.create({
+    email: params[:stripeEmail],
+    source: params[:stripeToken],
+  })
+
+  charge = Stripe::Charge.create({
+    customer: customer.id,
+    amount: @amount,
+    description: 'Golden Shoe Order',
+    currency: 'GBP',
+  })
+
   rescue Stripe::CardError => e
     flash[:error] = e.message
-    redirect_to new_charge_path
+    redirect_to new_basket_charge_path(:basket_id)
   end
 end

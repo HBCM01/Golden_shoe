@@ -1,5 +1,5 @@
 
-<%= form_tag charges_path do %>
+<%= form_tag  basket_charges_path(:basket_id) do %>
   <article>
     <% if flash[:error].present? %>
       <div id="error_explanation">
@@ -7,13 +7,15 @@
       </div>
     <% end %>
     <label class="amount">
-      <span>Amount: $5.00</span>
+      <span>Amount: £ <%= @basket.total_price + 5 %></span>
     </label>
   </article>
 
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="A month's subscription"
-          data-amount="500"
+          data-description="Golden Shoe order"
+          data-amount="<%= 500 + @basket.total_price * 100 %>"
+          data-billingAddress="true"
+          data-shippingAddress="true">
           data-locale="auto"></script>
 <% end %>
