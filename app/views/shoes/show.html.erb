@@ -10,7 +10,9 @@
             </div>
         </div>
     </header>
-    <div class="single_product">
+
+    <div class="single_product" style="mb-3">
+    <%= button_to "Back",  shoes_path, method: :get, class: "btn btn-dark px-4 rounded-pill m-"%>
         <div class="container-fluid" style=" background-color: #fff; padding: 11px;">
             <div class="row">
                 <div class="col-lg-2 order-lg-1 order-2">
@@ -40,10 +42,6 @@
                                 <div class="col-md-5">
                                     <div class="br-dashed">
                                         <div class="row">
-                                            <div class="col-md-3 col-xs-3"> <img src="https://img.icons8.com/color/48/000000/price-tag.png"> </div>
-                                            <div class="col-md-9 col-xs-9">
-                                                <div class="pr-info"> <span class="break-all">Get 5% instant discount + 10X rewards @ RENTOPC</span> </div>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -62,7 +60,8 @@
                                   <i class="btn btn-dark  py-2 fas fa-ruler fa-2x" data-toggle="modal" data-target="#exampleModalLong"></i>
                               </div>
                               <div class="product_fav">
-                              <i class="btn btn-dark rounded py-2 fas fa-truck fa-2x" style="margin: 8px;"></i>
+                              <i class="btn btn-dark rounded py-2 fas fa-truck fa-2x" style="margin: 8px;" data-toggle="modal" data-target=".bd-example-modal-lg"></i>
+
                               </div>
                               <% else  %>
                                  <span class="product_info ">Currently out of stock</span>
@@ -72,6 +71,33 @@
                     </div>
                 </div>
             </div>
+
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" style="text-align: center;" id="exampleModalLongTitle">Delivery</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <table>
+        <thead>
+
+        </thead>
+        <tr  scope="col" class="border-0 bg-light">
+        UK Standard Delivery
+        £5.
+        Delivery within 3-5 working days
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Small modal -->
+
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
